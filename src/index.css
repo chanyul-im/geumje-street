@@ -1,0 +1,85 @@
+@import "@fontsource/gowun-batang/korean-400.css";
+@import "@fontsource/gowun-batang/korean-700.css";
+@import "@fontsource/gowun-batang/latin-400.css";
+@import "@fontsource/gowun-batang/latin-700.css";
+@import "@fontsource/ibm-plex-sans-kr/korean-400.css";
+@import "@fontsource/ibm-plex-sans-kr/korean-500.css";
+@import "@fontsource/ibm-plex-sans-kr/korean-600.css";
+@import "@fontsource/ibm-plex-sans-kr/korean-700.css";
+@import "@fontsource/ibm-plex-sans-kr/latin-400.css";
+@import "@fontsource/ibm-plex-sans-kr/latin-700.css";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans KR", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  --font-display: "Gowun Batang", "Iowan Old Style", serif;
+  --color-background: #161226;
+  --color-foreground: #f6f1e6;
+  --color-card: #241c3d;
+  --color-primary: #e6c36a;
+  --color-primary-foreground: #2a2108;
+  --color-secondary: #3a3158;
+  --color-secondary-foreground: #f6f1e6;
+  --color-muted: #2a2444;
+  --color-muted-foreground: #c9c0d8;
+  --color-accent: #c4454a;
+  --color-accent-foreground: #fff7f4;
+  --color-border: #4d446c;
+  --color-ring: #e6c36a;
+  --color-input: #3a3158;
+  --color-gold: #e6c36a;
+  --color-cream: #f6f1e6;
+  --color-ink: #120e1e;
+  --color-crimson: #c4454a;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body, #root { min-height: 100%; }
+  body {
+    margin: 0;
+    background: #0c0a14;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  button, a { -webkit-tap-highlight-color: transparent; }
+}
+
+.kalos-sky {
+  background:
+    radial-gradient(ellipse at 50% 115%, rgba(230, 195, 106, 0.22), transparent 52%),
+    radial-gradient(ellipse at 85% 8%, rgba(98, 86, 196, 0.45), transparent 42%),
+    radial-gradient(ellipse at 8% 18%, rgba(196, 69, 74, 0.22), transparent 36%),
+    linear-gradient(180deg, #221a3d 0%, #120e1e 68%);
+}
+
+.stars {
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 28% 42%, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1.5px 1.5px at 70% 22%, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1px 1px at 84% 48%, rgba(255, 255, 255, 0.45), transparent),
+    radial-gradient(1px 1px at 46% 12%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 60% 70%, rgba(255, 255, 255, 0.35), transparent);
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes hitflash {
+  0% { transform: translateX(0); filter: none; }
+  30% { transform: translateX(-7px); filter: brightness(2.2); }
+  60% { transform: translateX(6px); filter: brightness(1.4); }
+  100% { transform: translateX(0); filter: none; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.bob { animation: bob 2.6s ease-in-out infinite; }
+.hitflash { animation: hitflash 0.38s ease; }
+.rise { animation: rise 0.35s ease; }
+
+.hp-fill { transition: width 0.45s ease; }
+.pixel { image-rendering: pixelated; image-rendering: crisp-edges; }
